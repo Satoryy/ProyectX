@@ -1,6 +1,10 @@
 local PlayerP = game.Players.LocalPlayer
 local PlayerW = game.Workspace:WaitForChild(PlayerP.Name)
 local Humanoid = PlayerW:WaitForChild("Humanoid")
+local UIS = game:GetService("UserInputService")
 
-Humanoid.MaxHealth = 500
-Humanoid.Health = 500
+UIS.InputBegan:Connect(function(input)
+	if input.KeyCode == Enum.KeyCode.F then
+		Humanoid.Health = 100
+	end
+end)
